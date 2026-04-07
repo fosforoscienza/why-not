@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Il Progetto — Why Not?</title>
+  <meta name="description" content="Why Not? — obiettivi, attività e fasi del progetto per i giovani NEET tra i 15 e i 29 anni. Fano e Senigallia, 2025.">
+  <meta name="theme-color" content="#0d0a1e">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ── Navigation ─────────────────────────────── -->
+<nav class="nav" id="nav" role="navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Why Not? — Home">WHY NOT<span class="q">?</span></a>
+    <div class="nav__links">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="progetto.html" data-i18n="nav.progetto">Il Progetto</a>
+      <a href="partner.html" data-i18n="nav.partner">Partner</a>
+      <a href="toolkit.html" data-i18n="nav.toolkit">Toolkit</a>
+    </div>
+    <div class="nav__actions">
+      <button class="lang-toggle" aria-label="Cambia lingua">
+        <span data-i18n="nav.lang">EN</span>
+      </button>
+      <button class="nav__burger" id="navBurger" aria-label="Apri menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav__mobile" id="navMobile">
+  <a href="index.html" data-i18n="nav.home">Home</a>
+  <a href="progetto.html" data-i18n="nav.progetto">Il Progetto</a>
+  <a href="partner.html" data-i18n="nav.partner">Partner</a>
+  <a href="toolkit.html" data-i18n="nav.toolkit">Toolkit</a>
+  <div class="nav__mobile-footer">
+    <button class="lang-toggle"><span data-i18n="nav.lang">EN</span></button>
+  </div>
+</div>
+
+<!-- ── Page Hero ──────────────────────────────── -->
+<header class="page-hero section--alt">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__orb hero__orb--1" style="opacity:0.3;"></div>
+    <div class="hero__orb hero__orb--2" style="opacity:0.2;"></div>
+    <div class="hero__grid"></div>
+  </div>
+  <div class="container page-hero__content">
+    <div class="label reveal" data-i18n="progetto.hero.label">Il Progetto</div>
+    <h1 class="reveal reveal--delay-1">WHY NOT?</h1>
+    <p class="reveal reveal--delay-2" data-i18n="progetto.hero.subtitle">We host Young New Opportunities and Training</p>
+  </div>
+</header>
+
+<!-- ── Context ────────────────────────────────── -->
+<section class="section" id="contesto">
+  <div class="container">
+    <div class="label reveal" data-i18n="progetto.context.label">Il Contesto</div>
+    <h2 class="h2 reveal reveal--delay-1" data-i18n="progetto.context.title">Il fenomeno NEET</h2>
+    <div class="context__content" style="margin-top:40px;">
+      <div class="context__text">
+        <p class="reveal" data-i18n="progetto.context.p1">Il progetto parte dall'analisi del fenomeno NEET generation: la relazione tra i bisogni della Generazione Z (15–30 anni) e la condizione di chi non studia, non lavora e non si forma.</p>
+        <p class="reveal reveal--delay-1" data-i18n="progetto.context.p2">Ma c'è una nuova consapevolezza: molti giovani scelgono di attendere fino a trovare un lavoro in linea con le proprie aspettative di significato. Why Not? parte da qui: accoglie i giovani dove sono, senza giudicarli.</p>
+      </div>
+      <div class="context__quote reveal reveal--delay-2">
+        <p>"Why Not? vuole accogliere i giovani in uno spazio di ascolto e di sperimentazione, uno spazio in cui possano mettersi alla prova senza paura di sbagliare."</p>
+        <cite>— Scheda di progetto, 2025</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Goals ──────────────────────────────────── -->
+<section class="section section--dark" id="obiettivi">
+  <div class="container">
+    <div class="label reveal" data-i18n="progetto.goals.label">Obiettivi</div>
+    <h2 class="h2 reveal reveal--delay-1" data-i18n="progetto.goals.title">Cosa vogliamo costruire</h2>
+    <div class="goals__grid stagger-children" style="margin-top:48px;" role="list">
+      <div class="goal-card" role="listitem">
+        <div class="goal-card__num" aria-hidden="true">01</div>
+        <p data-i18n="progetto.goal.1">Incrementare la conoscenza di sé e delle proprie abilità</p>
+      </div>
+      <div class="goal-card" role="listitem">
+        <div class="goal-card__num" aria-hidden="true">02</div>
+        <p data-i18n="progetto.goal.2">Potenziare le competenze emotive e relazionali</p>
+      </div>
+      <div class="goal-card" role="listitem">
+        <div class="goal-card__num" aria-hidden="true">03</div>
+        <p data-i18n="progetto.goal.3">Incrementare consapevolezza digitale e utilizzo critico della rete</p>
+      </div>
+      <div class="goal-card" role="listitem">
+        <div class="goal-card__num" aria-hidden="true">04</div>
+        <p data-i18n="progetto.goal.4">Sviluppare capacità comunicative e relazionali</p>
+      </div>
+      <div class="goal-card" role="listitem">
+        <div class="goal-card__num" aria-hidden="true">05</div>
+        <p data-i18n="progetto.goal.5">Costruire abilità pratiche nella produzione di contenuti digitali e multimediali</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Activities ─────────────────────────────── -->
+<section class="section" id="attivita">
+  <div class="container">
+    <div class="label reveal" data-i18n="progetto.activities.label">Le Attività</div>
+    <h2 class="h2 reveal reveal--delay-1" data-i18n="progetto.activities.title">Il Percorso</h2>
+    <div class="activities__list stagger-children" style="margin-top:48px;">
+      <div class="activity-item">
+        <span class="activity-item__code">A0</span>
+        <div class="activity-item__body">
+          <h3 data-i18n="progetto.a0.title">A0 — Ingaggio</h3>
+          <p data-i18n="progetto.a0.text">Campagna di comunicazione per il reclutamento dei giovani, con azioni mirate a raggiungere i NEET tramite contatti con le scuole e la rete del territorio.</p>
+        </div>
+        <div class="activity-item__who" data-i18n="progetto.a0.who">Next ETS · Totem APS</div>
+      </div>
+      <div class="activity-item">
+        <span class="activity-item__code">A1</span>
+        <div class="activity-item__body">
+          <h3 data-i18n="progetto.a1.title">A1 — Conoscenza di Sé e Soft Skills</h3>
+          <p data-i18n="progetto.a1.text">Due moduli esperienziali al Bioparco Sociale Vita da Pacos: attività laboratoriali e giochi di ruolo per la conoscenza di sé e il potenziamento delle competenze emotive.</p>
+        </div>
+        <div class="activity-item__who" data-i18n="progetto.a1.who">Totem APS · Fano</div>
+      </div>
+      <div class="activity-item">
+        <span class="activity-item__code">A2</span>
+        <div class="activity-item__body">
+          <h3 data-i18n="progetto.a2.title">A2 — Cittadini Digitali</h3>
+          <p data-i18n="progetto.a2.text">Due moduli con gli esperti Di.Te per orientare i giovani a un uso consapevole della rete, riconoscere i fake e costruire competenze di cittadinanza digitale.</p>
+        </div>
+        <div class="activity-item__who" data-i18n="progetto.a2.who">Di.Te · Fano</div>
+      </div>
+      <div class="activity-item">
+        <span class="activity-item__code">A3</span>
+        <div class="activity-item__body">
+          <h3 data-i18n="progetto.a3.title">A3 — Comunicare per Me</h3>
+          <p data-i18n="progetto.a3.text">Due incontri per riflettere sul ruolo della comunicazione digitale nell'espressione di sé e nel rapporto con il mondo.</p>
+        </div>
+        <div class="activity-item__who" data-i18n="progetto.a3.who">Next ETS · Fano</div>
+      </div>
+      <div class="activity-item">
+        <span class="activity-item__code">A4</span>
+        <div class="activity-item__body">
+          <h3 data-i18n="progetto.a4.title">A4 — Comunicare per gli Altri</h3>
+          <p data-i18n="progetto.a4.text">Incontri con professionisti sulla produzione di contenuti e un laboratorio di co-progettazione per realizzare video destinati ai social.</p>
+        </div>
+        <div class="activity-item__who" data-i18n="progetto.a4.who">Next ETS · Fano &amp; Senigallia</div>
+      </div>
+      <div class="activity-item">
+        <span class="activity-item__code">A5</span>
+        <div class="activity-item__body">
+          <h3 data-i18n="progetto.a5.title">A5 — Festa Finale e Disseminazione</h3>
+          <p data-i18n="progetto.a5.text">Una festa finale per fare il punto sull'esperienza vissuta e lanciare la campagna di disseminazione dei prodotti multimediali creati dai giovani.</p>
+        </div>
+        <div class="activity-item__who" data-i18n="progetto.a5.who">Totem APS · Next ETS · Fano</div>
+      </div>
+      <div class="activity-item">
+        <span class="activity-item__code">A6</span>
+        <div class="activity-item__body">
+          <h3 data-i18n="progetto.a6.title">A6 — Coordinamento e Monitoraggio</h3>
+          <p data-i18n="progetto.a6.text">Gestione e coordinamento delle attività, monitoraggio degli obiettivi di progetto, rendicontazione finale.</p>
+        </div>
+        <div class="activity-item__who" data-i18n="progetto.a6.who">Next ETS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Cronogram ──────────────────────────────── -->
+<section class="section section--dark" id="cronogramma">
+  <div class="container">
+    <div class="label reveal">Cronogramma</div>
+    <h2 class="h2 reveal reveal--delay-1">10 mesi di progetto</h2>
+    <div style="margin-top:48px;overflow-x:auto;">
+      <table class="cronogram reveal reveal--delay-2" role="table" aria-label="Cronogramma delle attività">
+        <thead>
+          <tr>
+            <th style="text-align:left;padding:12px 16px;font-size:13px;color:var(--gray-500);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;min-width:200px;">Attività</th>
+            <th>M1</th><th>M2</th><th>M3</th><th>M4</th><th>M5</th>
+            <th>M6</th><th>M7</th><th>M8</th><th>M9</th><th>M10</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>A0 · Ingaggio</td>         <td class="c">●</td><td class="c">●</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>A1 · Conoscere se stessi</td><td></td><td></td><td class="c">●</td><td class="c">●</td><td class="c">●</td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>A2 · Cittadini digitali</td><td></td><td></td><td></td><td class="c">●</td><td class="c">●</td><td class="c">●</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>A3 · Comunicare per me</td> <td></td><td></td><td></td><td></td><td class="c">●</td><td class="c">●</td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>A4 · Comunicare per gli altri</td><td></td><td></td><td></td><td></td><td></td><td class="c">●</td><td class="c">●</td><td class="c">●</td><td></td><td></td></tr>
+          <tr><td>A5 · Condivisione</td>      <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="c">●</td><td></td><td></td></tr>
+          <tr><td>A6 · Coordinamento</td>     <td class="c">●</td><td class="c">●</td><td class="c">●</td><td class="c">●</td><td class="c">●</td><td class="c">●</td><td class="c">●</td><td class="c">●</td><td class="c">●</td><td class="c">●</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ── Results ────────────────────────────────── -->
+<section class="section" id="risultati">
+  <div class="container">
+    <div class="label reveal" data-i18n="progetto.results.label">Risultati</div>
+    <h2 class="h2 reveal reveal--delay-1" data-i18n="progetto.results.title">Cosa produrremo</h2>
+    <div class="results__grid" style="margin-top:48px;">
+      <ul class="results__list stagger-children" aria-label="Risultati attesi">
+        <li>12 giovani protagonisti del percorso (di cui 1 NEET)</li>
+        <li>2 operatori under 35 direttamente coinvolti</li>
+        <li>4 professionisti nel percorso formativo</li>
+        <li>12 video e campagna di storytelling</li>
+        <li>1 video finale sull'esperienza</li>
+        <li>1 toolkit digitale sulla consapevolezza in rete</li>
+        <li>1 pagina web riassuntiva del progetto</li>
+      </ul>
+      <div class="results__stats stagger-children">
+        <div class="result-stat">
+          <div class="result-stat__num" data-count="12">12</div>
+          <div class="result-stat__label" data-i18n="progetto.stat.youths">giovani</div>
+        </div>
+        <div class="result-stat">
+          <div class="result-stat__num" data-count="10">10</div>
+          <div class="result-stat__label" data-i18n="progetto.stat.months">mesi</div>
+        </div>
+        <div class="result-stat">
+          <div class="result-stat__num" data-count="12">12</div>
+          <div class="result-stat__label">video</div>
+        </div>
+        <div class="result-stat">
+          <div class="result-stat__num" data-count="3">3</div>
+          <div class="result-stat__label">partner</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────── -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">WHY NOT<span>?</span></div>
+        <p data-i18n="hero.subtitle">We host Young New Opportunities and Training</p>
+        <a href="mailto:info@fosforoscienza.it" class="btn btn--ghost" style="padding:10px 20px;font-size:13px;">info@fosforoscienza.it</a>
+      </div>
+      <div class="footer__col">
+        <h4>Pagine</h4>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="progetto.html" data-i18n="nav.progetto">Il Progetto</a>
+        <a href="partner.html" data-i18n="nav.partner">Partner</a>
+        <a href="toolkit.html" data-i18n="nav.toolkit">Toolkit</a>
+      </div>
+      <div class="footer__col">
+        <h4 data-i18n="footer.contact">Contatti</h4>
+        <a href="mailto:info@fosforoscienza.it">info@fosforoscienza.it</a>
+        <a href="https://www.fosforoscienza.it" target="_blank" rel="noopener">fosforoscienza.it</a>
+      </div>
+    </div>
+    <div class="footer__logos">
+      <span class="footer__logos-label" data-i18n="footer.funded">Finanziato da</span>
+      <img src="assets/images/logo-regione-marche.png" alt="Regione Marche" class="footer__logo-img" onerror="this.style.display='none'">
+      <img src="assets/images/logo-presidenza.png" alt="Presidenza del Consiglio dei Ministri" class="footer__logo-img" onerror="this.style.display='none'">
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__funded-text" data-i18n="footer.funded.text">Intervento «Quello che i giovani possono» · Linea d'Azione 1 «NEET a chi?» · DGR n. 446/2024 e DGR n. 57/2025</p>
+      <p data-i18n="footer.rights">© 2025 Why Not?</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/translations.js"></script>
+<script src="js/main.js"></script>
+
+<style>
+/* Cronogram table styles (page-specific) */
+.cronogram {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.cronogram th, .cronogram td {
+  padding: 14px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+  color: var(--gray-300);
+  min-width: 44px;
+}
+.cronogram thead th {
+  background: var(--bg3);
+  color: var(--gray-500);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.cronogram tbody tr td:first-child {
+  text-align: left;
+  color: var(--white);
+  font-weight: 500;
+  background: var(--bg3);
+}
+.cronogram tbody tr:hover td { background: rgba(192,132,252,0.05); }
+.cronogram td.c { color: var(--lilac); font-size: 16px; }
+</style>
+</body>
+</html>

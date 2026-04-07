@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner — Why Not?</title>
+  <meta name="description" content="I partner del progetto Why Not?: Next ETS, Totem APS e Di.Te, con il contributo della Regione Marche.">
+  <meta name="theme-color" content="#0d0a1e">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ── Navigation ─────────────────────────────── -->
+<nav class="nav" id="nav" role="navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Why Not? — Home">WHY NOT<span class="q">?</span></a>
+    <div class="nav__links">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="progetto.html" data-i18n="nav.progetto">Il Progetto</a>
+      <a href="partner.html" data-i18n="nav.partner">Partner</a>
+      <a href="toolkit.html" data-i18n="nav.toolkit">Toolkit</a>
+    </div>
+    <div class="nav__actions">
+      <button class="lang-toggle" aria-label="Cambia lingua">
+        <span data-i18n="nav.lang">EN</span>
+      </button>
+      <button class="nav__burger" id="navBurger" aria-label="Apri menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav__mobile" id="navMobile">
+  <a href="index.html" data-i18n="nav.home">Home</a>
+  <a href="progetto.html" data-i18n="nav.progetto">Il Progetto</a>
+  <a href="partner.html" data-i18n="nav.partner">Partner</a>
+  <a href="toolkit.html" data-i18n="nav.toolkit">Toolkit</a>
+  <div class="nav__mobile-footer">
+    <button class="lang-toggle"><span data-i18n="nav.lang">EN</span></button>
+  </div>
+</div>
+
+<!-- ── Page Hero ──────────────────────────────── -->
+<header class="page-hero section--alt">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__orb hero__orb--1" style="opacity:0.3;"></div>
+    <div class="hero__orb hero__orb--2" style="opacity:0.2;"></div>
+    <div class="hero__grid"></div>
+  </div>
+  <div class="container page-hero__content">
+    <div class="label reveal" data-i18n="partner.hero.label">Chi siamo</div>
+    <h1 class="reveal reveal--delay-1" data-i18n="partner.hero.title">Il Partenariato</h1>
+    <p class="reveal reveal--delay-2" data-i18n="partner.hero.subtitle">Tre organizzazioni unite per costruire un percorso autentico per i giovani delle Marche.</p>
+  </div>
+</header>
+
+<!-- ── Partners ───────────────────────────────── -->
+<section class="section" id="partner">
+  <div class="container">
+    <div class="partners__grid stagger-children">
+
+      <!-- Next ETS (capofila) -->
+      <article class="partner-card">
+        <div class="partner-card__badge" data-i18n="partner.capofila">Capofila</div>
+        <img
+          src="assets/images/logo-next.png"
+          alt="Logo Associazione Culturale Next ETS"
+          class="partner-card__logo"
+          onerror="this.style.display='none'"
+        >
+        <h3 data-i18n="partner.next.name">Associazione Culturale Next ETS</h3>
+        <p data-i18n="partner.next.desc">Associazione culturale con sede a Senigallia, esperta in educazione informale e produzione di contenuti educativi multimediali. Da anni realizza progetti per i giovani in co-progettazione, con forte vocazione alla comunicazione creativa e alla digital education.</p>
+        <a href="https://www.fosforoscienza.it" target="_blank" rel="noopener" class="partner-card__link">fosforoscienza.it</a>
+      </article>
+
+      <!-- Totem APS -->
+      <article class="partner-card">
+        <div class="partner-card__badge" data-i18n="partner.partner">Partner</div>
+        <img
+          src="assets/images/logo-totem.png"
+          alt="Logo Totem APS"
+          class="partner-card__logo"
+          onerror="this.style.display='none'"
+        >
+        <h3 data-i18n="partner.totem.name">Totem APS</h3>
+        <p data-i18n="partner.totem.desc">Promuove la cultura della sostenibilità, dell'accoglienza e la formazione dei giovani. Grazie a decenni di esperienza con adolescenti, gestisce il Bioparco Sociale Vita da Pacos a Fano — il luogo inusuale e immerso nella natura scelto per i workshop esperienziali del progetto.</p>
+        <a href="https://vitadapacos.it" target="_blank" rel="noopener" class="partner-card__link">vitadapacos.it</a>
+      </article>
+
+      <!-- Di.Te -->
+      <article class="partner-card">
+        <div class="partner-card__badge" data-i18n="partner.partner">Partner</div>
+        <img
+          src="assets/images/logo-dite.png"
+          alt="Logo Di.Te Associazione Nazionale Dipendenze Tecnologiche"
+          class="partner-card__logo"
+          onerror="this.style.display='none'"
+        >
+        <h3 data-i18n="partner.dite.name">Di.Te – Dipendenze Tecnologiche</h3>
+        <p data-i18n="partner.dite.desc">Associazione Nazionale Dipendenze Tecnologiche, Gap e Cyberbullismo, attiva dal 2002. Esperta a livello nazionale nel campo delle dipendenze digitali, conduce corsi professionalizzanti, progetti con giovani e famiglie ed eventi sulla consapevolezza in rete.</p>
+        <a href="https://www.associazionedite.it" target="_blank" rel="noopener" class="partner-card__link">associazionedite.it</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Funder ─────────────────────────────────── -->
+<section class="section section--dark" id="finanziatore">
+  <div class="container">
+    <div class="funder reveal">
+      <div class="label" data-i18n="partner.funder.label">Con il contributo di</div>
+      <div class="funder__logos" aria-label="Loghi enti finanziatori">
+        <img src="assets/images/logo-regione-marche.png" alt="Regione Marche" class="funder__logo-img" onerror="this.style.display='none'">
+        <img src="assets/images/logo-presidenza.png" alt="Presidenza del Consiglio dei Ministri" class="funder__logo-img" onerror="this.style.display='none'">
+      </div>
+      <p data-i18n="partner.funder.text">Il progetto è finanziato dalla Regione Marche nell'ambito dell'intervento «Quello che i giovani possono», Linea d'Azione 1 «NEET a chi?», ai sensi della DGR n. 446/2024 e della DGR n. 57/2025.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ────────────────────────────────────── -->
+<section class="section">
+  <div class="container" style="text-align:center;">
+    <div class="label reveal" style="justify-content:center;">Scopri di più</div>
+    <h2 class="h2 reveal reveal--delay-1" style="margin-bottom:32px;">Vuoi sapere tutto sul progetto?</h2>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;" class="reveal reveal--delay-2">
+      <a href="progetto.html" class="btn btn--primary" data-i18n="nav.progetto">Il Progetto</a>
+      <a href="toolkit.html" class="btn btn--ghost" data-i18n="nav.toolkit">Toolkit</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────── -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">WHY NOT<span>?</span></div>
+        <p data-i18n="hero.subtitle">We host Young New Opportunities and Training</p>
+        <a href="mailto:info@fosforoscienza.it" class="btn btn--ghost" style="padding:10px 20px;font-size:13px;">info@fosforoscienza.it</a>
+      </div>
+      <div class="footer__col">
+        <h4>Pagine</h4>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="progetto.html" data-i18n="nav.progetto">Il Progetto</a>
+        <a href="partner.html" data-i18n="nav.partner">Partner</a>
+        <a href="toolkit.html" data-i18n="nav.toolkit">Toolkit</a>
+      </div>
+      <div class="footer__col">
+        <h4 data-i18n="footer.contact">Contatti</h4>
+        <a href="mailto:info@fosforoscienza.it">info@fosforoscienza.it</a>
+        <a href="https://www.fosforoscienza.it" target="_blank" rel="noopener">fosforoscienza.it</a>
+      </div>
+    </div>
+    <div class="footer__logos">
+      <span class="footer__logos-label" data-i18n="footer.funded">Finanziato da</span>
+      <img src="assets/images/logo-regione-marche.png" alt="Regione Marche" class="footer__logo-img" onerror="this.style.display='none'">
+      <img src="assets/images/logo-presidenza.png" alt="Presidenza del Consiglio" class="footer__logo-img" onerror="this.style.display='none'">
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__funded-text" data-i18n="footer.funded.text">Intervento «Quello che i giovani possono» · Linea d'Azione 1 «NEET a chi?» · DGR n. 446/2024 e DGR n. 57/2025</p>
+      <p data-i18n="footer.rights">© 2025 Why Not?</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/translations.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

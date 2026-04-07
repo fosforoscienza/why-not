@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Not? — Progetto Giovani</title>
+  <meta name="description" content="Why Not? è un percorso gratuito per i giovani dai 15 ai 29 anni tra scoperta di sé, cittadinanza digitale e comunicazione creativa. Fano e Senigallia, 2025.">
+  <meta property="og:title" content="Why Not? — We host Young New Opportunities and Training">
+  <meta property="og:description" content="Un percorso gratuito per i giovani dai 15 ai 29 anni. Workshop esperienziali, cittadinanza digitale, comunicazione creativa.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0d0a1e">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ── Navigation ─────────────────────────────── -->
+<nav class="nav" id="nav" role="navigation" aria-label="Navigazione principale">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Why Not? — Home">WHY NOT<span class="q">?</span></a>
+    <div class="nav__links">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="progetto.html" data-i18n="nav.progetto">Il Progetto</a>
+      <a href="partner.html" data-i18n="nav.partner">Partner</a>
+      <a href="toolkit.html" data-i18n="nav.toolkit">Toolkit</a>
+    </div>
+    <div class="nav__actions">
+      <button class="lang-toggle" aria-label="Cambia lingua">
+        <span data-i18n="nav.lang">EN</span>
+      </button>
+      <button class="nav__burger" id="navBurger" aria-label="Apri menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="nav__mobile" id="navMobile" aria-hidden="true">
+  <a href="index.html" data-i18n="nav.home">Home</a>
+  <a href="progetto.html" data-i18n="nav.progetto">Il Progetto</a>
+  <a href="partner.html" data-i18n="nav.partner">Partner</a>
+  <a href="toolkit.html" data-i18n="nav.toolkit">Toolkit</a>
+  <div class="nav__mobile-footer">
+    <button class="lang-toggle" aria-label="Cambia lingua">
+      <span data-i18n="nav.lang">EN</span>
+    </button>
+  </div>
+</div>
+
+<!-- ── Hero ───────────────────────────────────── -->
+<section class="hero" id="hero" aria-label="Intestazione principale">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__orb hero__orb--1"></div>
+    <div class="hero__orb hero__orb--2"></div>
+    <div class="hero__orb hero__orb--3"></div>
+    <div class="hero__grid"></div>
+    <div class="hero__noise"></div>
+  </div>
+  <div class="hero__content container">
+    <div class="hero__eyebrow" data-i18n="hero.eyebrow">Regione Marche · Fano &amp; Senigallia · 2025</div>
+    <h1 class="hero__logo-text">WHY<br>NOT?</h1>
+    <p class="hero__subtitle" data-i18n="hero.subtitle">We host Young New Opportunities and Training</p>
+    <p class="hero__desc" data-i18n="hero.description">Un percorso gratuito per i giovani dai 15 ai 29 anni tra scoperta di sé, cittadinanza digitale e comunicazione creativa.</p>
+    <div class="hero__actions">
+      <a href="progetto.html" class="btn btn--primary" data-i18n="hero.cta.primary">Scopri il progetto</a>
+      <a href="#workshops" class="btn btn--ghost" data-i18n="hero.cta.secondary">I workshop</a>
+    </div>
+  </div>
+  <div class="hero__scroll" aria-hidden="true">
+    <div class="hero__scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ── About ──────────────────────────────────── -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about">
+      <div class="about__text">
+        <div class="label reveal" data-i18n="about.label">Il Progetto</div>
+        <h2 class="h2 reveal reveal--delay-1" data-i18n="about.title">Uno spazio per mettersi alla prova</h2>
+        <p class="reveal reveal--delay-2" data-i18n="about.text">Why Not? accoglie i giovani in uno spazio di ascolto e sperimentazione. Un percorso per uscire dalle paure del futuro e dalla comfort zone, alla riscoperta di un obiettivo, una passione, un talento da coltivare.</p>
+        <a href="progetto.html" class="btn btn--outline reveal reveal--delay-3" data-i18n="about.cta">Leggi di più</a>
+      </div>
+      <div class="about__stats stagger-children" aria-label="Dati del progetto">
+        <div class="about__stat">
+          <div class="about__stat-num" data-count="10">10</div>
+          <div class="about__stat-label" data-i18n="progetto.stat.months">mesi</div>
+        </div>
+        <div class="about__stat">
+          <div class="about__stat-num" data-count="12">12</div>
+          <div class="about__stat-label" data-i18n="progetto.stat.youths">giovani</div>
+        </div>
+        <div class="about__stat">
+          <div class="about__stat-num">15–29</div>
+          <div class="about__stat-label" data-i18n="progetto.stat.age">15–29 anni</div>
+        </div>
+        <div class="about__stat">
+          <div class="about__stat-num" data-count="2">2</div>
+          <div class="about__stat-label" data-i18n="progetto.stat.cities">città</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Workshops ──────────────────────────────── -->
+<section class="section section--dark" id="workshops">
+  <div class="container">
+    <div class="workshops__header">
+      <div class="label reveal" data-i18n="workshops.label">I Workshop</div>
+      <h2 class="h2 reveal reveal--delay-1" data-i18n="workshops.title">Workshop Esperienziali</h2>
+      <p class="reveal reveal--delay-2" data-i18n="workshops.subtitle">Tre percorsi gratuiti al Bioparco Sociale Vita da Pacos, Fano (PU). Aperto a ragazze e ragazzi dai 15 ai 29 anni.</p>
+    </div>
+    <div class="workshops__grid stagger-children">
+      <!-- Workshop 1 -->
+      <article class="workshop-card">
+        <div class="workshop-card__number" aria-hidden="true">01</div>
+        <div class="workshop-card__badge" data-i18n="workshops.free">Gratuito</div>
+        <h3 data-i18n="workshop.1.title">Conoscenza di Sé e Soft Skills</h3>
+        <p data-i18n="workshop.1.desc">Attività laboratoriali e giochi di ruolo per la conoscenza di sé, il potenziamento dell'auto-efficacia e delle competenze emotive.</p>
+        <div class="workshop-card__dates">
+          <div class="workshop-card__date-row">
+            <span class="dot" aria-hidden="true"></span>
+            <strong data-i18n="workshop.1.dates">23 ott · 6 nov · 20 nov · 4 dic</strong>
+          </div>
+          <div class="workshop-card__date-row">
+            <span class="dot" aria-hidden="true"></span>
+            <span data-i18n="workshop.1.time">19:00 – 22:00</span>
+          </div>
+        </div>
+        <div class="workshop-card__loc">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-i18n="workshops.location">Bioparco Vita da Pacos, Fano (PU)</span>
+        </div>
+      </article>
+      <!-- Workshop 2 -->
+      <article class="workshop-card">
+        <div class="workshop-card__number" aria-hidden="true">02</div>
+        <div class="workshop-card__badge" data-i18n="workshops.free">Gratuito</div>
+        <h3 data-i18n="workshop.2.title">Comunicare per Me e per gli Altri</h3>
+        <p data-i18n="workshop.2.desc">Riflessione sul ruolo della comunicazione digitale. Laboratorio di co-progettazione per produrre video per i social.</p>
+        <div class="workshop-card__dates">
+          <div class="workshop-card__date-row">
+            <span class="dot" aria-hidden="true"></span>
+            <strong data-i18n="workshop.2.dates">30 ott · 13 nov · 27 nov · 11 dic</strong>
+          </div>
+          <div class="workshop-card__date-row">
+            <span class="dot" aria-hidden="true"></span>
+            <span data-i18n="workshop.2.time">16:00 – 20:00</span>
+          </div>
+        </div>
+        <div class="workshop-card__loc">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-i18n="workshops.location">Bioparco Vita da Pacos, Fano (PU)</span>
+        </div>
+      </article>
+      <!-- Workshop 3 -->
+      <article class="workshop-card">
+        <div class="workshop-card__number" aria-hidden="true">03</div>
+        <div class="workshop-card__badge" data-i18n="workshops.free">Gratuito</div>
+        <h3 data-i18n="workshop.3.title">Cittadini Digitali</h3>
+        <p data-i18n="workshop.3.desc">Con gli esperti di Di.Te per usare la rete in modo consapevole, riconoscere i fake e costruire un toolkit sulla consapevolezza digitale.</p>
+        <div class="workshop-card__dates">
+          <div class="workshop-card__date-row">
+            <span class="dot" aria-hidden="true"></span>
+            <strong data-i18n="workshop.3.dates">Novembre – Dicembre 2025</strong>
+          </div>
+          <div class="workshop-card__date-row">
+            <span class="dot" aria-hidden="true"></span>
+            <span data-i18n="workshop.3.time">Date da definire</span>
+          </div>
+        </div>
+        <div class="workshop-card__loc">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-i18n="workshops.location">Bioparco Vita da Pacos, Fano (PU)</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── Decalogo ────────────────────────────────── -->
+<section class="section" id="decalogo">
+  <div class="container">
+    <div class="decalogo__header">
+      <div class="label reveal" data-i18n="decalogo.label">Vivere il Digitale</div>
+      <h2 class="h2 reveal reveal--delay-1" data-i18n="decalogo.title">Il Decalogo</h2>
+      <p class="reveal reveal--delay-2" data-i18n="decalogo.subtitle">Dieci regole per navigare il mondo digitale con consapevolezza e intelligenza.</p>
+    </div>
+    <div class="decalogo__grid stagger-children" role="list">
+      <article class="decalogo-card" role="listitem">
+        <div class="decalogo-card__num" aria-hidden="true" data-i18n="decalogo.1.num">01</div>
+        <div class="decalogo-card__content">
+          <h3 data-i18n="decalogo.1.title">L'impronta che lasci non si cancella mai</h3>
+          <p data-i18n="decalogo.1.text">Ogni foto o commento diventa parte del tuo curriculum digitale. Chiediti: "Sarei fiero di mostrare questo tra cinque anni?"</p>
+        </div>
+      </article>
+      <article class="decalogo-card" role="listitem">
+        <div class="decalogo-card__num" aria-hidden="true" data-i18n="decalogo.2.num">02</div>
+        <div class="decalogo-card__content">
+          <h3 data-i18n="decalogo.2.title">Gli screenshot sono la tua prima linea di difesa</h3>
+          <p data-i18n="decalogo.2.text">Se subisci minacce o cyberbullismo, non cancellare il messaggio: fotografa lo schermo, conserva le prove, parla con un adulto.</p>
+        </div>
+      </article>
+      <article class="decalogo-card" role="listitem">
+        <div class="decalogo-card__num" aria-hidden="true" data-i18n="decalogo.3.num">03</div>
+        <div class="decalogo-card__content">
+          <h3 data-i18n="decalogo.3.title">Riprenditi le chiavi del tuo tempo</h3>
+          <p data-i18n="decalogo.3.text">Usa Benessere Digitale o Tempo di utilizzo per capire quante ore stai usando. Niente telefono mentre mangi, schermi spenti prima di dormire.</p>
+        </div>
+      </article>
+      <article class="decalogo-card" role="listitem">
+        <div class="decalogo-card__num" aria-hidden="true" data-i18n="decalogo.4.num">04</div>
+        <div class="decalogo-card__content">
+          <h3 data-i18n="decalogo.4.title">I chatbot sono macchine, non terapeuti</h3>
+          <p data-i18n="decalogo.4.text">L'IA è ottima per studiare, ma non capisce le emozioni. Se stai male, rivolgiti a uno psicologo o a un adulto di fiducia.</p>
+        </div>
+      </article>
+      <article class="decalogo-card" role="listitem">
+        <div class="decalogo-card__num" aria-hidden="true" data-i18n="decalogo.5.num">05</div>
+        <div class="decalogo-card__content">
+          <h3 data-i18n="decalogo.5.title">La tua vita privata non è uno spettacolo</h3>
+          <p data-i18n="decalogo.5.text">Sei tu il buttafuori del tuo profilo. Nascondi la foto di WhatsApp agli sconosciuti e scegli con cura chi far entrare.</p>
+        </div>
+      </article>
+      <article class="decalogo-card" role="listitem">
+        <div class="decalogo-card__num" aria-hidden="true" data-i18n="decalogo.6.num">06</div>
+        <div class="decalogo-card__content">
+          <h3 data-i18n="decalogo.6.title">Non sei tu a sbagliare, è l'algoritmo</h3>
+          <p data-i18n="decalogo.6.text">I social sono progettati per trattenere la tua attenzione. Se scorrere il feed ti rende nervoso, fermati e chiudi l'app.</p>
+        </div>
+      </article>
+      <article class="decalogo-card" role="listitem">
+        <div class="decalogo-card__num" aria-hidden="true" data-i18n="decalogo.7.num">07</div>
+        <div class="decalogo-card__content">
+          <h3 data-i18n="decalogo.7.title">Nessun trend vale la tua incolumità</h3>
+          <p data-i18n="decalogo.7.text">Le challenge virali hanno già dimostrato di poter avere conseguenze letali. La vita reale non ha il tasto "Riprova".</p>
+        </div>
+      </article>
+      <article class="decalogo-card" role="listitem">
+        <div class="decalogo-card__num" aria-hidden="true" data-i18n="decalogo.8.num">08</div>
+        <div class="decalogo-card__content">
+          <h3 data-i18n="decalogo.8.title">Il tuo valore non si misura in cuoricini</h3>
+          <p data-i18n="decalogo.8.text">L'autostima non dipende dall'esito di un post. Non lasciare che una formula matematica giudichi il tuo valore.</p>
+        </div>
+      </article>
+      <article class="decalogo-card" role="listitem">
+        <div class="decalogo-card__num" aria-hidden="true" data-i18n="decalogo.9.num">09</div>
+        <div class="decalogo-card__content">
+          <h3 data-i18n="decalogo.9.title">Proteggi il tuo volto nell'era dei Deepfake</h3>
+          <p data-i18n="decalogo.9.text">Limita il materiale visivo che esponi pubblicamente. Se sei vittima di un deepfake: non hai alcuna colpa. Segnala subito.</p>
+        </div>
+      </article>
+      <article class="decalogo-card" role="listitem">
+        <div class="decalogo-card__num" aria-hidden="true" data-i18n="decalogo.10.num">10</div>
+        <div class="decalogo-card__content">
+          <h3 data-i18n="decalogo.10.title">Chiudi a chiave la tua casa digitale</h3>
+          <p data-i18n="decalogo.10.text">Usa password diverse per ogni piattaforma e attiva l'autenticazione a due fattori. Un piccolo sforzo per evitare furti di identità.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── Toolkit Teaser ──────────────────────────── -->
+<section class="section section--dark" id="toolkit-teaser">
+  <div class="container">
+    <div class="toolkit-teaser reveal">
+      <div>
+        <div class="label" data-i18n="toolkit.label">Risorse</div>
+        <h2 data-i18n="toolkit.title">Toolkit Digitale</h2>
+        <p data-i18n="toolkit.desc">Una guida pratica per orientarsi nella rete con consapevolezza: strumenti, consigli e risorse selezionate dai nostri esperti.</p>
+      </div>
+      <a href="toolkit.html" class="btn btn--primary" data-i18n="toolkit.cta">Esplora il toolkit</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Video Gallery ───────────────────────────── -->
+<section class="section" id="videos">
+  <div class="container">
+    <div class="label reveal" data-i18n="video.label">I Nostri Video</div>
+    <h2 class="h2 reveal reveal--delay-1" data-i18n="video.title">Le Storie dei Giovani</h2>
+    <!-- Set data-playlist-id to your YouTube playlist ID to activate -->
+    <div id="youtube-gallery" data-playlist-id="PLAYLIST_ID_HERE" style="margin-top:40px;">
+      <div class="video__placeholder reveal reveal--delay-2">
+        <div class="video__placeholder-icon" aria-hidden="true">▶</div>
+        <p data-i18n="video.placeholder">I video realizzati dai partecipanti saranno pubblicati qui al termine del percorso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────── -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">WHY NOT<span>?</span></div>
+        <p data-i18n="hero.subtitle">We host Young New Opportunities and Training</p>
+        <a href="mailto:info@fosforoscienza.it" class="btn btn--ghost" style="padding:10px 20px;font-size:13px;">info@fosforoscienza.it</a>
+      </div>
+      <div class="footer__col">
+        <h4>Pagine</h4>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="progetto.html" data-i18n="nav.progetto">Il Progetto</a>
+        <a href="partner.html" data-i18n="nav.partner">Partner</a>
+        <a href="toolkit.html" data-i18n="nav.toolkit">Toolkit</a>
+      </div>
+      <div class="footer__col">
+        <h4 data-i18n="footer.contact">Contatti</h4>
+        <a href="mailto:info@fosforoscienza.it">info@fosforoscienza.it</a>
+        <a href="https://www.fosforoscienza.it" target="_blank" rel="noopener">fosforoscienza.it</a>
+        <p>Senigallia &amp; Fano, Italia</p>
+      </div>
+    </div>
+    <div class="footer__logos" aria-label="Loghi partner">
+      <span class="footer__logos-label" data-i18n="footer.funded">Finanziato da</span>
+      <!-- Place logo files in assets/images/ -->
+      <img src="assets/images/logo-regione-marche.png" alt="Regione Marche" class="footer__logo-img" onerror="this.style.display='none'">
+      <img src="assets/images/logo-presidenza.png" alt="Presidenza del Consiglio dei Ministri" class="footer__logo-img" onerror="this.style.display='none'">
+      <img src="assets/images/logo-next.png" alt="Next ETS" class="footer__logo-img" onerror="this.style.display='none'">
+      <img src="assets/images/logo-totem.png" alt="Totem APS" class="footer__logo-img" onerror="this.style.display='none'">
+      <img src="assets/images/logo-dite.png" alt="Di.Te" class="footer__logo-img" onerror="this.style.display='none'">
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__funded-text" data-i18n="footer.funded.text">Intervento «Quello che i giovani possono» · Linea d'Azione 1 «NEET a chi?» · DGR n. 446/2024 e DGR n. 57/2025</p>
+      <p data-i18n="footer.rights">© 2025 Why Not? — Progetto finanziato dalla Regione Marche</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/translations.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
