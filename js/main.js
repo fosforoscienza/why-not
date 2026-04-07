@@ -258,6 +258,27 @@ function initSmoothScroll() {
   });
 }
 
+/* ── Logo fallbacks ──────────────────────────── */
+const LOGOS = {
+  // Called by onerror on img tags when image file is missing
+  fallback(img) {
+    const alt = img.getAttribute('alt') || '';
+    const isFooter = img.classList.contains('footer__logo-img') || img.classList.contains('funder__logo-img');
+    const span = document.createElement('span');
+    span.className = isFooter ? 'logo-text-small' : 'logo-text-fallback';
+    span.textContent = alt;
+    img.replaceWith(span);
+  }
+};
+
+/* ── Version badge ───────────────────────────── */
+function initVersion() {
+  const v = typeof APP_VERSION !== 'undefined' ? APP_VERSION : '0.1';
+  document.querySelectorAll('#app-version').forEach(el => {
+    el.textContent = `v${v}`;
+  });
+}
+
 /* ── Boot ────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   I18N.init();
@@ -268,4 +289,5 @@ document.addEventListener('DOMContentLoaded', () => {
   COUNTER.init();
   YOUTUBE.init();
   initSmoothScroll();
+  initVersion();
 });

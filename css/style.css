@@ -23,7 +23,7 @@
   --gray-700:  #3a3355;
 
   --font-display: 'Bebas Neue', sans-serif;
-  --font-head:    'Syne', sans-serif;
+  --font-head:    'Fredoka', sans-serif;
   --font-body:    'Space Grotesk', sans-serif;
 
   --radius:    16px;
@@ -179,11 +179,6 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; line-height: 1
   color: var(--white);
   position: relative;
 }
-.nav__logo::after {
-  content: '?';
-  color: var(--lilac);
-}
-/* Remove the ? from the text since it's already in the HTML */
 .nav__logo span.q { color: var(--lilac); }
 
 .nav__links {
@@ -1248,6 +1243,43 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; line-height: 1
 }
 .resource-card a:hover { gap: 10px; }
 .resource-card a::after { content: '→'; }
+
+/* ── Logo fallbacks ─────────────────────────────── */
+.logo-text-fallback {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.logo-text-small {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.02em;
+}
+
+/* ── Version badge ──────────────────────────────── */
+.footer__version {
+  font-size: 11px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--gray-700);
+  letter-spacing: 0.06em;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
 
 /* ── Scroll reveal ──────────────────────────────── */
 .reveal {

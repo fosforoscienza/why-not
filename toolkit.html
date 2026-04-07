@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#0d0a1e">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -255,16 +255,18 @@
     </div>
     <div class="footer__logos">
       <span class="footer__logos-label" data-i18n="footer.funded">Finanziato da</span>
-      <img src="assets/images/logo-regione-marche.png" alt="Regione Marche" class="footer__logo-img" onerror="this.style.display='none'">
-      <img src="assets/images/logo-presidenza.png" alt="Presidenza del Consiglio dei Ministri" class="footer__logo-img" onerror="this.style.display='none'">
+      <img src="assets/images/logo-regione-marche.png" alt="Regione Marche" class="footer__logo-img" onerror="LOGOS.fallback(this)">
+      <img src="assets/images/logo-presidenza.png" alt="Presidenza del Consiglio dei Ministri" class="footer__logo-img" onerror="LOGOS.fallback(this)">
     </div>
     <div class="footer__bottom">
       <p class="footer__funded-text" data-i18n="footer.funded.text">Intervento «Quello che i giovani possono» · Linea d'Azione 1 «NEET a chi?» · DGR n. 446/2024 e DGR n. 57/2025</p>
+      <span class="footer__version" id="app-version"></span>
       <p data-i18n="footer.rights">© 2025 Why Not?</p>
     </div>
   </div>
 </footer>
 
+<script src="js/version.js"></script>
 <script src="js/translations.js"></script>
 <script src="js/main.js"></script>
 </body>
