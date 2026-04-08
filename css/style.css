@@ -140,6 +140,19 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; line-height: 1
   background: rgba(192,132,252,0.1);
   transform: translateY(-2px);
 }
+.btn--download {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  font-size: 15px;
+}
+.btn--download svg {
+  flex-shrink: 0;
+}
+.toolkit__download {
+  border-block-start: 1px solid var(--border);
+}
 .btn--outline {
   border: 1.5px solid var(--border-hover);
   color: var(--lilac);

@@ -185,6 +185,11 @@ const T = {
     "toolkit.resources.label": "Aiuto e Risorse",
     "toolkit.resources.title": "Non sei solo",
 
+    "toolkit.download.label": "Scarica",
+    "toolkit.download.title": "Porta il Toolkit con te",
+    "toolkit.download.subtitle": "Salva il PDF con il decalogo e i contatti utili — da tenere sul telefono o condividere con chi ne ha bisogno.",
+    "toolkit.download.btn": "Scarica il PDF",
+
     "toolkit.res.1.title": "Cyberbullismo — Cosa fare",
     "toolkit.res.1.desc": "Guida pratica del Ministero dell'Istruzione su come riconoscere e contrastare il cyberbullismo.",
     "toolkit.res.1.url": "https://www.miur.gov.it",
@@ -384,6 +389,11 @@ const T = {
     "toolkit.rules.title": "Living Digital",
     "toolkit.resources.label": "Help & Resources",
     "toolkit.resources.title": "You are not alone",
+
+    "toolkit.download.label": "Download",
+    "toolkit.download.title": "Take the Toolkit with you",
+    "toolkit.download.subtitle": "Save the PDF with the rules and useful contacts — keep it on your phone or share it with someone who needs it.",
+    "toolkit.download.btn": "Download PDF",
 
     "toolkit.res.1.title": "Cyberbullying — What to do",
     "toolkit.res.1.desc": "A practical guide from the Italian Ministry of Education on how to recognise and counter cyberbullying.",
