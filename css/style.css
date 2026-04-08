@@ -726,6 +726,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; line-height: 1
 
 /* ── Gallery ──────────────────────────────────── */
 .gallery { overflow: hidden; }
+.gallery .section__title { text-align: center; margin-bottom: 48px; }
 
 .gallery__strip {
   display: grid;
