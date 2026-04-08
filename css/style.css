@@ -723,6 +723,43 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; line-height: 1
   border: none;
 }
 
+/* ── Gallery ──────────────────────────────────── */
+.gallery { overflow: hidden; }
+
+.gallery__strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  width: 100%;
+}
+
+.gallery__item {
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s var(--ease-out), filter 0.5s ease;
+  filter: brightness(0.85);
+}
+
+.gallery__item:hover img {
+  transform: scale(1.06);
+  filter: brightness(1);
+}
+
+@media (max-width: 768px) {
+  .gallery__strip {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .gallery__item { aspect-ratio: 16/9; }
+}
+
 /* ── Footer ─────────────────────────────────────── */
 .footer {
   background: var(--bg2);

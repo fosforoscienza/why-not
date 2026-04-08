@@ -90,6 +90,7 @@ const T = {
 
     "video.label": "I Nostri Video",
     "video.title": "Le Storie dei Giovani",
+    "gallery.title": "Il progetto in foto",
     "video.placeholder": "I video realizzati dai partecipanti saranno pubblicati qui al termine del percorso.",
 
     "footer.funded": "Finanziato da",
@@ -292,6 +293,7 @@ const T = {
 
     "video.label": "Our Videos",
     "video.title": "Stories from Young People",
+    "gallery.title": "The project in photos",
     "video.placeholder": "Videos created by participants will be published here at the end of the programme.",
 
     "footer.funded": "Funded by",
