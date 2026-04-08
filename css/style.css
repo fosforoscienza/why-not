@@ -392,7 +392,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; line-height: 1
   color: var(--gray-300);
   max-width: 560px;
   line-height: 1.7;
-  margin-bottom: 40px;
+  margin: 0 auto 40px;
   opacity: 0;
   transform: translateY(20px);
 }
@@ -401,6 +401,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; line-height: 1
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  justify-content: center;
   opacity: 0;
   transform: translateY(20px);
 }
