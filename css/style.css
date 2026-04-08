@@ -23,7 +23,7 @@
   --gray-700:  #3a3355;
 
   --font-display: 'Wild Nature', sans-serif;
-  --font-head:    'Wild Nature', sans-serif;
+  --font-head:    'Poppins', sans-serif;
   --font-body:    'Poppins', sans-serif;
 
   --radius:    16px;
@@ -745,17 +745,31 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; line-height: 1
   object-fit: cover;
   display: block;
   transition: transform 0.5s var(--ease-out), filter 0.5s ease;
-  filter: brightness(0.85);
+  filter: grayscale(1) brightness(0.8);
 }
 
 .gallery__item:hover img {
   transform: scale(1.06);
-  filter: brightness(1);
+  filter: grayscale(0) brightness(1);
 }
 
 @media (max-width: 768px) {
-  .gallery__strip { gap: 2px; }
-  .gallery__item { aspect-ratio: 16/9; max-height: 140px; }
+  .gallery__strip {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+    padding: 0 20px 12px;
+    grid-template-columns: unset;
+  }
+  .gallery__item {
+    flex: 0 0 78vw;
+    aspect-ratio: 4/3;
+    max-height: unset;
+    scroll-snap-align: start;
+    border-radius: 12px;
+  }
 }
 
 /* ── Footer ─────────────────────────────────────── */
