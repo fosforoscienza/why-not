@@ -1397,7 +1397,10 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; line-height: 1
   .nav__logo-img { height: 22px; }
   .hero { align-items: flex-start; min-height: auto; padding-bottom: 60px; }
   .hero__content { padding-left: 20px; padding-right: 20px; padding-top: 32px; padding-bottom: 0; }
-  .hero__logo-img { width: clamp(160px, 55vw, 280px); }
+  .hero__logo-img { width: clamp(120px, 40vw, 180px); }
+  .gallery__item img { filter: grayscale(1) brightness(0.8); }
+  .footer__logos { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .footer__logo-img { height: 60px; }
 
   .workshops__grid { grid-template-columns: 1fr; }
   .decalogo__grid { grid-template-columns: 1fr; }
