@@ -735,7 +735,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; line-height: 1
 
 .gallery__item {
   overflow: hidden;
-  aspect-ratio: 4/3;
+  aspect-ratio: 16/9;
+  max-height: 260px;
 }
 
 .gallery__item img {
@@ -753,11 +754,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; line-height: 1
 }
 
 @media (max-width: 768px) {
-  .gallery__strip {
-    grid-template-columns: 1fr;
-    gap: 4px;
-  }
-  .gallery__item { aspect-ratio: 16/9; }
+  .gallery__strip { gap: 2px; }
+  .gallery__item { aspect-ratio: 16/9; max-height: 140px; }
 }
 
 /* ── Footer ─────────────────────────────────────── */
