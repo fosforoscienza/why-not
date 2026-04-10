@@ -212,33 +212,87 @@ const COUNTER = {
 
 /* ── YouTube Playlist ────────────────────────── */
 const YOUTUBE = {
-  init() {
+  PROXY: 'https://api.allorigins.win/raw?url=',
+
+  async init() {
     const container = document.getElementById('youtube-gallery');
     if (!container) return;
-
     const playlistId = container.getAttribute('data-playlist-id');
-    if (!playlistId || playlistId === 'PLAYLIST_ID_HERE') {
-      // Show placeholder
-      return;
+    if (!playlistId || playlistId === 'PLAYLIST_ID_HERE') return;
+
+    try {
+      const videos = await this.fetchPlaylist(playlistId);
+      if (videos.length) {
+        this.renderGallery(container, videos, playlistId);
+      } else {
+        this.renderEmbed(container, playlistId);
+      }
+    } catch {
+      this.renderEmbed(container, playlistId);
     }
+  },
 
-    // Fetch playlist via YouTube Data API (no key needed for embed)
-    // We'll embed the playlist iframe directly
+  async fetchPlaylist(id) {
+    const feedUrl = `https://www.youtube.com/feeds/videos.xml?playlist_id=${id}`;
+    const resp = await fetch(this.PROXY + encodeURIComponent(feedUrl));
+    const text = await resp.text();
+    const ids    = [...text.matchAll(/<yt:videoId>([^<]+)<\/yt:videoId>/g)].map(m => m[1]);
+    const titles = [...text.matchAll(/<title>([^<]+)<\/title>/g)].map(m => m[1]).slice(1);
+    return ids.map((id, i) => ({ id, title: titles[i] || '' }));
+  },
+
+  renderGallery(container, videos, playlistId) {
     const placeholder = container.querySelector('.video__placeholder');
-    if (placeholder) placeholder.style.display = 'none';
+    if (placeholder) placeholder.remove();
 
+    const strip = document.createElement('div');
+    strip.className = 'video__strip';
+
+    videos.forEach(({ id, title }) => {
+      const card = document.createElement('div');
+      card.className = 'video__card';
+      card.innerHTML = `
+        <button class="video__thumb" aria-label="Guarda: ${title}">
+          <img src="https://img.youtube.com/vi/${id}/mqdefault.jpg" alt="${title}" loading="lazy">
+          <span class="video__play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+        </button>
+        ${title ? `<p class="video__card-title">${title}</p>` : ''}
+      `;
+      card.querySelector('.video__thumb').addEventListener('click', function () {
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+        iframe.title = title;
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('allow', 'autoplay; encrypted-media');
+        iframe.className = 'video__card-iframe';
+        this.replaceWith(iframe);
+      });
+      strip.appendChild(card);
+    });
+
+    container.appendChild(strip);
+
+    const footer = document.createElement('div');
+    footer.className = 'video__strip-footer';
+    footer.innerHTML = `<a href="https://www.youtube.com/playlist?list=${playlistId}" target="_blank" rel="noopener" class="btn btn--ghost">Guarda tutta la playlist →</a>`;
+    container.appendChild(footer);
+  },
+
+  renderEmbed(container, playlistId) {
+    const placeholder = container.querySelector('.video__placeholder');
+    if (placeholder) placeholder.remove();
     const embedDiv = document.createElement('div');
     embedDiv.innerHTML = `
       <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:16px;">
         <iframe
           src="https://www.youtube.com/embed/videoseries?list=${playlistId}&rel=0"
           style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-          allowfullscreen
-          loading="lazy"
+          allowfullscreen loading="lazy"
           title="Why Not? — Video dei partecipanti"
         ></iframe>
-      </div>
-    `;
+      </div>`;
     container.appendChild(embedDiv);
   }
 };
