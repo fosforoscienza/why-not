@@ -739,14 +739,25 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; line-height: 1
 
 /* ── Video Strip Gallery ─────────────────────── */
 .video__strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: row;
   gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-hover) transparent;
 }
+.video__strip::-webkit-scrollbar { height: 4px; }
+.video__strip::-webkit-scrollbar-track { background: transparent; }
+.video__strip::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 2px; }
 .video__card {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  flex: 0 0 320px;
+  scroll-snap-align: start;
 }
 .video__thumb {
   position: relative;
@@ -810,16 +821,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; line-height: 1
   margin-top: 32px;
   text-align: center;
 }
-@media (max-width: 768px) {
-  .video__strip {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-}
-@media (max-width: 480px) {
-  .video__strip {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 600px) {
+  .video__card { flex: 0 0 78vw; }
 }
 
 /* ── Gallery ──────────────────────────────────── */
