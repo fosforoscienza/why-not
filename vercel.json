@@ -28,8 +28,9 @@
     }
   ],
   "rewrites": [
-    { "source": "/progetto", "destination": "/progetto.html" },
-    { "source": "/partner",  "destination": "/partner.html" },
-    { "source": "/toolkit",  "destination": "/toolkit.html" }
+    { "source": "/progetto",  "destination": "/progetto.html" },
+    { "source": "/partner",   "destination": "/partner.html" },
+    { "source": "/toolkit",   "destination": "/toolkit.html" },
+    { "source": "/dashboard", "destination": "/dashboard.html" }
   ]
 }

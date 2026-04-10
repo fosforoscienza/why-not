@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Why Not?</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0d0a1e;
+      --bg2:      #131026;
+      --bg3:      #1a1530;
+      --bg4:      #231d3a;
+      --lilac:    #c084fc;
+      --lilac2:   #9333ea;
+      --white:    #ffffff;
+      --gray300:  #d1d5db;
+      --gray400:  #9ca3af;
+      --gray500:  #6b7280;
+      --green:    #4ade80;
+      --blue:     #60a5fa;
+      --orange:   #fb923c;
+      --radius:   12px;
+      --radius-lg:18px;
+    }
+
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      min-height: 100vh;
+      font-size: 14px;
+    }
+
+    /* ── Nav ── */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: var(--bg2);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav__left { display: flex; align-items: center; gap: 16px; }
+    .nav__logo { height: 28px; }
+    .nav__title { font-size: 15px; font-weight: 600; color: var(--gray300); }
+    .nav__title span { color: var(--lilac); }
+    .nav__right { display: flex; align-items: center; gap: 12px; }
+    .nav__back {
+      font-size: 13px; color: var(--gray400); text-decoration: none;
+      padding: 6px 14px; border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 999px; transition: all .2s;
+    }
+    .nav__back:hover { color: var(--white); border-color: var(--lilac); }
+    .nav__updated { font-size: 11px; color: var(--gray500); }
+
+    /* ── Layout ── */
+    .dash { max-width: 1200px; margin: 0 auto; padding: 32px 24px 64px; }
+
+    /* ── Period selector ── */
+    .period-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .period-bar h1 { font-size: 20px; font-weight: 600; }
+    .period-btns { display: flex; gap: 6px; }
+    .period-btn {
+      padding: 6px 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12);
+      background: transparent; color: var(--gray300); cursor: pointer;
+      font-family: inherit; font-size: 13px; transition: all .2s;
+    }
+    .period-btn:hover { border-color: var(--lilac); color: var(--white); }
+    .period-btn.active {
+      background: var(--lilac2); border-color: var(--lilac2); color: var(--white); font-weight: 500;
+    }
+    .refresh-btn {
+      padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12);
+      background: transparent; color: var(--gray400); cursor: pointer;
+      font-family: inherit; font-size: 12px; transition: all .2s;
+    }
+    .refresh-btn:hover { color: var(--white); border-color: var(--gray300); }
+
+    /* ── Overview cards ── */
+    .overview {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .kpi {
+      background: var(--bg3);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+    }
+    .kpi__label { font-size: 11px; font-weight: 500; color: var(--gray500); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+    .kpi__value { font-size: 32px; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 4px; }
+    .kpi__sub { font-size: 12px; color: var(--gray400); }
+    .kpi--accent .kpi__value { color: var(--lilac); }
+
+    /* ── Charts grid ── */
+    .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+    .charts--wide { grid-template-columns: 1fr; }
+    .charts--three { grid-template-columns: 1fr 1fr 1fr; }
+
+    .card {
+      background: var(--bg3);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+    }
+    .card__title {
+      font-size: 13px; font-weight: 600; color: var(--gray300);
+      text-transform: uppercase; letter-spacing: .06em; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .card__title::before {
+      content: ''; display: inline-block; width: 3px; height: 14px;
+      background: var(--lilac); border-radius: 2px;
+    }
+    .chart-wrap { position: relative; height: 220px; }
+    .chart-wrap--tall { height: 280px; }
+
+    /* ── Tables ── */
+    .table { width: 100%; border-collapse: collapse; }
+    .table tr { border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .table tr:last-child { border-bottom: none; }
+    .table td { padding: 10px 0; font-size: 13px; vertical-align: middle; }
+    .table td:last-child { text-align: right; color: var(--gray300); font-weight: 500; }
+    .table .bar-cell { padding: 10px 12px; }
+    .bar-wrap { height: 6px; background: rgba(255,255,255,0.07); border-radius: 3px; width: 100%; margin-top: 4px; }
+    .bar-fill { height: 6px; background: var(--lilac2); border-radius: 3px; transition: width .6s ease; }
+    .table .label-cell { color: var(--gray300); max-width: 180px; }
+    .table .label-cell span { display: block; font-size: 11px; color: var(--gray500); }
+
+    /* ── Heatmap oraria ── */
+    .heatmap {
+      display: grid;
+      grid-template-columns: repeat(24, 1fr);
+      gap: 4px;
+      margin-top: 8px;
+    }
+    .heatmap__col { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .heatmap__cell {
+      width: 100%; aspect-ratio: 1;
+      border-radius: 4px;
+      background: rgba(147,51,234,0.08);
+      transition: background .3s;
+    }
+    .heatmap__label { font-size: 9px; color: var(--gray500); }
+
+    /* ── Donut legend ── */
+    .donut-wrap { display: flex; align-items: center; gap: 24px; }
+    .donut-chart { flex: 0 0 160px; height: 160px; position: relative; }
+    .donut-legend { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .legend-label { color: var(--gray300); flex: 1; }
+    .legend-value { color: var(--white); font-weight: 500; }
+    .legend-pct { color: var(--gray500); font-size: 11px; }
+
+    /* ── Geo flags ── */
+    .country-label { display: flex; align-items: center; gap: 6px; }
+
+    /* ── States ── */
+    .loading {
+      display: flex; align-items: center; justify-content: center;
+      height: 200px; color: var(--gray500); font-size: 13px;
+    }
+    .spinner {
+      width: 20px; height: 20px; border: 2px solid rgba(192,132,252,0.2);
+      border-top-color: var(--lilac); border-radius: 50%;
+      animation: spin .7s linear infinite; margin-right: 10px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .empty { color: var(--gray500); font-size: 13px; text-align: center; padding: 40px 0; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .overview { grid-template-columns: repeat(2, 1fr); }
+      .charts { grid-template-columns: 1fr; }
+      .charts--three { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 540px) {
+      .overview { grid-template-columns: 1fr 1fr; }
+      .dash { padding: 20px 16px 48px; }
+      .heatmap { grid-template-columns: repeat(12, 1fr); }
+      .heatmap__col:nth-child(n+13) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__left">
+    <img src="assets/images/logo-why-not.png" alt="Why Not?" class="nav__logo">
+    <span class="nav__title">Dashboard <span>Analytics</span></span>
+  </div>
+  <div class="nav__right">
+    <span class="nav__updated" id="updatedAt"></span>
+    <a href="/" class="nav__back">← Sito</a>
+  </div>
+</nav>
+
+<div class="dash">
+
+  <!-- Period selector -->
+  <div class="period-bar">
+    <h1>Statistiche di accesso</h1>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <div class="period-btns">
+        <button class="period-btn active" data-period="7">7 giorni</button>
+        <button class="period-btn" data-period="30">30 giorni</button>
+        <button class="period-btn" data-period="90">90 giorni</button>
+      </div>
+      <button class="refresh-btn" id="refreshBtn">↻ Aggiorna</button>
+    </div>
+  </div>
+
+  <!-- KPI overview -->
+  <div class="overview">
+    <div class="kpi kpi--accent">
+      <div class="kpi__label">Visite totali</div>
+      <div class="kpi__value" id="kpi-views">—</div>
+      <div class="kpi__sub" id="kpi-views-sub">ultimi <span id="kpi-days">7</span> giorni</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi__label">Sessioni uniche</div>
+      <div class="kpi__value" id="kpi-sessions">—</div>
+      <div class="kpi__sub">visitatori distinti</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi__label">Media giornaliera</div>
+      <div class="kpi__value" id="kpi-avg">—</div>
+      <div class="kpi__sub">visite/giorno</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi__label">Pagina top</div>
+      <div class="kpi__value" style="font-size:18px;" id="kpi-top">—</div>
+      <div class="kpi__sub">più visitata</div>
+    </div>
+  </div>
+
+  <!-- Grafico visite nel tempo -->
+  <div class="charts charts--wide" style="margin-bottom:20px;">
+    <div class="card">
+      <div class="card__title">Visite nel tempo</div>
+      <div class="chart-wrap chart-wrap--tall">
+        <canvas id="chartViews"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Heatmap oraria -->
+  <div class="card" style="margin-bottom:20px;">
+    <div class="card__title">Traffico per ora del giorno (UTC)</div>
+    <div class="heatmap" id="heatmap"></div>
+  </div>
+
+  <!-- Pagine + Referrers -->
+  <div class="charts" style="margin-bottom:20px;">
+    <div class="card">
+      <div class="card__title">Pagine più visitate</div>
+      <table class="table" id="tablePages">
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card__title">Sorgenti di traffico</div>
+      <table class="table" id="tableReferrers">
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Dispositivi + Browser + Paesi -->
+  <div class="charts charts--three">
+    <div class="card">
+      <div class="card__title">Dispositivi</div>
+      <div class="donut-wrap" id="donutDevices">
+        <div class="donut-chart"><canvas id="chartDevices"></canvas></div>
+        <div class="donut-legend" id="legendDevices"></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card__title">Browser</div>
+      <div class="donut-wrap" id="donutBrowsers">
+        <div class="donut-chart"><canvas id="chartBrowsers"></canvas></div>
+        <div class="donut-legend" id="legendBrowsers"></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card__title">Paesi</div>
+      <table class="table" id="tableCountries">
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── Config ──────────────────────────────────────────────────────────────────
+const COLORS = ['#c084fc','#9333ea','#60a5fa','#4ade80','#fb923c','#f472b6','#a78bfa','#34d399','#fbbf24','#f87171'];
+const CHART_DEFAULTS = {
+  color: '#9ca3af',
+  borderColor: 'rgba(255,255,255,0.06)',
+};
+Chart.defaults.color = CHART_DEFAULTS.color;
+Chart.defaults.borderColor = CHART_DEFAULTS.borderColor;
+
+let currentPeriod = 7;
+let viewsChart = null;
+let devicesChart = null;
+let browsersChart = null;
+
+// ── Fetch stats ──────────────────────────────────────────────────────────────
+async function loadStats(period) {
+  try {
+    const res  = await fetch(`/api/stats?period=${period}`);
+    if (!res.ok) throw new Error(res.statusText);
+    return await res.json();
+  } catch (e) {
+    console.error('Stats error:', e);
+    return null;
+  }
+}
+
+// ── Render ───────────────────────────────────────────────────────────────────
+function fmt(n) { return Number(n).toLocaleString('it-IT'); }
+
+function renderKPI(data) {
+  document.getElementById('kpi-views').textContent    = fmt(data.overview.totalViews);
+  document.getElementById('kpi-sessions').textContent = fmt(data.overview.totalSessions);
+  document.getElementById('kpi-avg').textContent      = fmt(data.overview.avgPerDay);
+  document.getElementById('kpi-top').textContent      = data.overview.topPage || '—';
+  document.getElementById('kpi-days').textContent     = data.period;
+  const d = new Date(data.updatedAt);
+  document.getElementById('updatedAt').textContent    = 'Aggiornato: ' + d.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+}
+
+function renderViewsChart(data) {
+  const labels = data.daily.views.map(d => {
+    const [, m, g] = d.date.split('-');
+    return `${g}/${m}`;
+  });
+  const views    = data.daily.views.map(d => d.count);
+  const sessions = data.daily.sessions.map(d => d.count);
+
+  if (viewsChart) viewsChart.destroy();
+  const ctx = document.getElementById('chartViews').getContext('2d');
+
+  const gradV = ctx.createLinearGradient(0, 0, 0, 280);
+  gradV.addColorStop(0, 'rgba(192,132,252,0.3)');
+  gradV.addColorStop(1, 'rgba(192,132,252,0)');
+
+  const gradS = ctx.createLinearGradient(0, 0, 0, 280);
+  gradS.addColorStop(0, 'rgba(96,165,250,0.2)');
+  gradS.addColorStop(1, 'rgba(96,165,250,0)');
+
+  viewsChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Visite',
+          data: views,
+          borderColor: '#c084fc',
+          backgroundColor: gradV,
+          borderWidth: 2,
+          pointRadius: 3,
+          pointBackgroundColor: '#c084fc',
+          fill: true,
+          tension: 0.3,
+        },
+        {
+          label: 'Sessioni uniche',
+          data: sessions,
+          borderColor: '#60a5fa',
+          backgroundColor: gradS,
+          borderWidth: 2,
+          pointRadius: 3,
+          pointBackgroundColor: '#60a5fa',
+          fill: true,
+          tension: 0.3,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { position: 'top', labels: { boxWidth: 10, font: { size: 11 } } },
+        tooltip: { backgroundColor: '#231d3a', borderColor: 'rgba(255,255,255,0.08)', borderWidth: 1, padding: 10 },
+      },
+      scales: {
+        x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { font: { size: 11 } } },
+        y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { font: { size: 11 }, precision: 0 }, beginAtZero: true },
+      },
+    },
+  });
+}
+
+function renderHeatmap(hours) {
+  const max = Math.max(...hours, 1);
+  const hm  = document.getElementById('heatmap');
+  hm.innerHTML = '';
+  hours.forEach((val, i) => {
+    const intensity = val / max;
+    const col = document.createElement('div');
+    col.className = 'heatmap__col';
+    col.innerHTML = `
+      <div class="heatmap__cell" title="${val} visite alle ore ${i}:00"
+        style="background:rgba(147,51,234,${0.05 + intensity * 0.85});"></div>
+      <div class="heatmap__label">${i}</div>`;
+    hm.appendChild(col);
+  });
+}
+
+function renderBarTable(tableId, rows) {
+  const tbody = document.querySelector(`#${tableId} tbody`);
+  if (!rows || !rows.length) {
+    tbody.innerHTML = '<tr><td colspan="2" class="empty">Nessun dato</td></tr>';
+    return;
+  }
+  const maxVal = rows[0].count;
+  tbody.innerHTML = rows.map(r => `
+    <tr>
+      <td class="label-cell">${r.label}</td>
+      <td class="bar-cell">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+          <div class="bar-wrap" style="flex:1;"><div class="bar-fill" style="width:${Math.round(r.count/maxVal*100)}%"></div></div>
+          <span style="font-size:12px;color:var(--gray300);white-space:nowrap;">${fmt(r.count)}</span>
+        </div>
+      </td>
+    </tr>`).join('');
+}
+
+function renderDonut(canvasId, legendId, rows, chartRef) {
+  if (!rows || !rows.length) return chartRef;
+  const total  = rows.reduce((s, r) => s + r.count, 0);
+  const labels = rows.map(r => r.label);
+  const values = rows.map(r => r.count);
+  const colors = rows.map((_, i) => COLORS[i % COLORS.length]);
+
+  if (chartRef) chartRef.destroy();
+  const ctx = document.getElementById(canvasId).getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels,
+      datasets: [{ data: values, backgroundColor: colors, borderWidth: 0, hoverOffset: 4 }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '68%',
+      plugins: {
+        legend: { display: false },
+        tooltip: { backgroundColor: '#231d3a', borderColor: 'rgba(255,255,255,0.08)', borderWidth: 1, padding: 10 },
+      },
+    },
+  });
+
+  document.getElementById(legendId).innerHTML = rows.map((r, i) => `
+    <div class="legend-item">
+      <div class="legend-dot" style="background:${colors[i]}"></div>
+      <span class="legend-label">${r.label}</span>
+      <span class="legend-value">${fmt(r.count)}</span>
+      <span class="legend-pct">${Math.round(r.count/total*100)}%</span>
+    </div>`).join('');
+
+  return chart;
+}
+
+function renderCountries(rows) {
+  const tbody = document.querySelector('#tableCountries tbody');
+  if (!rows || !rows.length) { tbody.innerHTML = '<tr><td class="empty">Nessun dato</td></tr>'; return; }
+  const max = rows[0].count;
+  tbody.innerHTML = rows.slice(0, 8).map(r => `
+    <tr>
+      <td class="label-cell country-label">
+        <span style="font-size:18px;">${countryFlag(r.label)}</span>
+        ${r.label}
+      </td>
+      <td class="bar-cell">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="bar-wrap" style="flex:1;"><div class="bar-fill" style="width:${Math.round(r.count/max*100)}%"></div></div>
+          <span style="font-size:12px;color:var(--gray300);">${fmt(r.count)}</span>
+        </div>
+      </td>
+    </tr>`).join('');
+}
+
+// Converti codice paese in emoji bandiera
+function countryFlag(code) {
+  if (!code || code === 'unknown') return '🌍';
+  try {
+    return code.toUpperCase().replace(/./g, c =>
+      String.fromCodePoint(0x1F1E6 - 65 + c.charCodeAt(0)));
+  } catch { return '🌍'; }
+}
+
+// ── Update all ───────────────────────────────────────────────────────────────
+async function update(period) {
+  // Mostra skeleton
+  document.getElementById('kpi-views').textContent    = '…';
+  document.getElementById('kpi-sessions').textContent = '…';
+  document.getElementById('kpi-avg').textContent      = '…';
+
+  const data = await loadStats(period);
+  if (!data) {
+    document.getElementById('kpi-views').textContent = 'Errore';
+    return;
+  }
+
+  renderKPI(data);
+  renderViewsChart(data);
+  renderHeatmap(data.hours);
+  renderBarTable('tablePages',     data.pages);
+  renderBarTable('tableReferrers', data.referrers);
+  devicesChart  = renderDonut('chartDevices',  'legendDevices',  data.devices,  devicesChart);
+  browsersChart = renderDonut('chartBrowsers', 'legendBrowsers', data.browsers, browsersChart);
+  renderCountries(data.countries);
+}
+
+// ── Events ───────────────────────────────────────────────────────────────────
+document.querySelectorAll('.period-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentPeriod = parseInt(btn.dataset.period);
+    update(currentPeriod);
+  });
+});
+
+document.getElementById('refreshBtn').addEventListener('click', () => update(currentPeriod));
+
+// Auto-refresh ogni ora
+setInterval(() => update(currentPeriod), 60 * 60 * 1000);
+
+// Avvio
+update(currentPeriod);
+</script>
+</body>
+</html>
