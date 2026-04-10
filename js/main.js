@@ -212,33 +212,19 @@ const COUNTER = {
 
 /* ── YouTube Playlist ────────────────────────── */
 const YOUTUBE = {
-  PROXY: 'https://api.allorigins.win/raw?url=',
-
-  async init() {
+  init() {
     const container = document.getElementById('youtube-gallery');
     if (!container) return;
     const playlistId = container.getAttribute('data-playlist-id');
     if (!playlistId || playlistId === 'PLAYLIST_ID_HERE') return;
 
-    try {
-      const videos = await this.fetchPlaylist(playlistId);
-      if (videos.length) {
-        this.renderGallery(container, videos, playlistId);
-      } else {
-        this.renderEmbed(container, playlistId);
-      }
-    } catch {
+    // Use pre-fetched data from build step (js/playlist-data.js)
+    const data = (typeof YOUTUBE_PLAYLIST !== 'undefined') ? YOUTUBE_PLAYLIST : null;
+    if (data && data.videos && data.videos.length) {
+      this.renderGallery(container, data.videos, playlistId);
+    } else {
       this.renderEmbed(container, playlistId);
     }
-  },
-
-  async fetchPlaylist(id) {
-    const feedUrl = `https://www.youtube.com/feeds/videos.xml?playlist_id=${id}`;
-    const resp = await fetch(this.PROXY + encodeURIComponent(feedUrl));
-    const text = await resp.text();
-    const ids    = [...text.matchAll(/<yt:videoId>([^<]+)<\/yt:videoId>/g)].map(m => m[1]);
-    const titles = [...text.matchAll(/<title>([^<]+)<\/title>/g)].map(m => m[1]).slice(1);
-    return ids.map((id, i) => ({ id, title: titles[i] || '' }));
   },
 
   renderGallery(container, videos, playlistId) {
