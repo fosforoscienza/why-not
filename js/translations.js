@@ -68,8 +68,8 @@ const T = {
     "decalogo.6.text": "I social sono progettati per trattenere la tua attenzione. Se scorrere il feed ti rende nervoso, fermati e chiudi l'app. Riconoscere la trappola è il modo per disinnescarla.",
 
     "decalogo.7.num": "07",
-    "decalogo.7.title": "Nessun trend vale la tua incolumità",
-    "decalogo.7.text": "Le challenge virali hanno già dimostrato di poter avere conseguenze letali. La vita reale non ha il tasto \"Riprova\".",
+    "decalogo.7.title": "Prima la sicurezza, poi i trend",
+    "decalogo.7.text": "Con l'app Patentinto Digitale dell'Associazione Di.Te. puoi allenarti a riconoscere rischi e comportamenti pericolosi online. Le sfide virali passano, ma le competenze che ti proteggono restano.",
 
     "decalogo.8.num": "08",
     "decalogo.8.title": "Il tuo valore non si misura in cuoricini",
@@ -198,13 +198,13 @@ const T = {
     "toolkit.res.2.desc": "Segnala reati informatici, deepfake e truffe online al sito ufficiale della Polizia Postale.",
     "toolkit.res.2.url": "https://www.commissariatodips.it",
 
-    "toolkit.res.3.title": "Di.Te — Dipendenze Tecnologiche",
+    "toolkit.res.3.title": "Associazione Nazionale Dipendenze Tecnologiche, GAP e Cyberbullismo (Di.Te.)",
     "toolkit.res.3.desc": "Consulenza, supporto e informazioni sull'uso problematico delle tecnologie digitali.",
-    "toolkit.res.3.url": "https://www.associazionedite.it",
+    "toolkit.res.3.url": "https://www.dipendenze.com",
 
-    "toolkit.res.4.title": "Telefono Amico",
-    "toolkit.res.4.desc": "Ascolto gratuito per chi si sente solo o ha bisogno di parlare con qualcuno. Chiama il 02 2327 2327.",
-    "toolkit.res.4.url": "https://www.telefonoamico.it",
+    "toolkit.res.4.title": "Numero verde dell'Associazione Di.Te.",
+    "toolkit.res.4.desc": "Ascolto gratuito per chi si sente solo o ha bisogno di parlare con qualcuno.",
+    "toolkit.res.4.url": "tel:800770960",
   },
 
   en: {
@@ -276,8 +276,8 @@ const T = {
     "decalogo.6.text": "Social networks are designed to hold your attention. If scrolling makes you anxious, stop and close the app. Recognising the trap is the best way to defuse it.",
 
     "decalogo.7.num": "07",
-    "decalogo.7.title": "No trend is worth your safety",
-    "decalogo.7.text": "Viral challenges have already proved to be deadly. Real life doesn't have a Try Again button.",
+    "decalogo.7.title": "Safety first, then trends",
+    "decalogo.7.text": "With the Patentinto Digitale app by the Di.Te. Association, you can train yourself to recognise online risks and dangerous behaviours. Viral trends come and go, but the skills that protect you last.",
 
     "decalogo.8.num": "08",
     "decalogo.8.title": "Your worth isn't measured in likes",
@@ -403,12 +403,12 @@ const T = {
     "toolkit.res.2.desc": "Report cybercrime, deepfakes and online scams at the official Postal Police website.",
     "toolkit.res.2.url": "https://www.commissariatodips.it",
 
-    "toolkit.res.3.title": "Di.Te — Tech Dependencies",
+    "toolkit.res.3.title": "National Association for Tech Dependencies, GAP and Cyberbullying (Di.Te.)",
     "toolkit.res.3.desc": "Advice, support and information on problematic use of digital technologies.",
-    "toolkit.res.3.url": "https://www.associazionedite.it",
+    "toolkit.res.3.url": "https://www.dipendenze.com",
 
-    "toolkit.res.4.title": "Telefono Amico",
-    "toolkit.res.4.desc": "Free listening service for anyone who feels alone or needs to talk to someone. Call 02 2327 2327.",
-    "toolkit.res.4.url": "https://www.telefonoamico.it",
+    "toolkit.res.4.title": "Di.Te. Association Freephone Number",
+    "toolkit.res.4.desc": "Free listening service for anyone who feels alone or needs to talk to someone.",
+    "toolkit.res.4.url": "tel:800770960",
   }
 };
