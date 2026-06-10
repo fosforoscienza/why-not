@@ -202,7 +202,7 @@ const T = {
     "toolkit.res.3.desc": "Consulenza, supporto e informazioni sull'uso problematico delle tecnologie digitali.",
     "toolkit.res.3.url": "https://www.dipendenze.com",
 
-    "toolkit.res.4.title": "Numero verde dell'Associazione Di.Te.",
+    "toolkit.res.4.title": "Numero verde",
     "toolkit.res.4.desc": "Ascolto gratuito per chi si sente solo o ha bisogno di parlare con qualcuno.",
     "toolkit.res.4.url": "tel:800770960",
   },
@@ -407,7 +407,7 @@ const T = {
     "toolkit.res.3.desc": "Advice, support and information on problematic use of digital technologies.",
     "toolkit.res.3.url": "https://www.dipendenze.com",
 
-    "toolkit.res.4.title": "Di.Te. Association Freephone Number",
+    "toolkit.res.4.title": "Freephone Number",
     "toolkit.res.4.desc": "Free listening service for anyone who feels alone or needs to talk to someone.",
     "toolkit.res.4.url": "tel:800770960",
   }
