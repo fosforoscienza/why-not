@@ -242,12 +242,13 @@ const YOUTUBE = {
     let autoTimer = null;
     let paused = false;
 
-    videos.forEach(({ id, title }) => {
+    videos.forEach(({ id, title, thumb }) => {
       const card = document.createElement('div');
-      card.className = 'video__card';
+      card.className = 'video__card' + (thumb ? ' video__card--portrait' : '');
+      const imgSrc = thumb || `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
       card.innerHTML = `
         <button class="video__thumb" aria-label="Guarda: ${title}">
-          <img src="https://img.youtube.com/vi/${id}/mqdefault.jpg" alt="${title}" loading="lazy">
+          <img src="${imgSrc}" alt="${title}" loading="lazy">
           <span class="video__play" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M8 5v14l11-7z"/></svg>
           </span>
