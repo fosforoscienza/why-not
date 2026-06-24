@@ -237,35 +237,27 @@ const YOUTUBE = {
     const strip = document.createElement('div');
     strip.className = 'video__strip';
 
-    const CARD_W = 336; // card width 320 + gap 16
+    const CARD_W = 196; // card width 180 + gap 16
     let currentIndex = 0;
     let autoTimer = null;
     let paused = false;
 
-    videos.forEach(({ id, title, thumb }) => {
-      const card = document.createElement('div');
-      card.className = 'video__card' + (thumb ? ' video__card--portrait' : '');
-      const imgSrc = thumb || `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
+    videos.forEach(({ id, title, thumb, url }) => {
+      const card = document.createElement('a');
+      card.className = 'video__card';
+      card.href = url || `https://www.youtube.com/watch?v=${id}`;
+      card.target = '_blank';
+      card.rel = 'noopener';
+      card.setAttribute('aria-label', title);
       card.innerHTML = `
-        <button class="video__thumb" aria-label="Guarda: ${title}">
-          <img src="${imgSrc}" alt="${title}" loading="lazy">
+        <div class="video__thumb">
+          <img src="${thumb}" alt="${title}" loading="lazy">
           <span class="video__play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M8 5v14l11-7z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M8 5v14l11-7z"/></svg>
           </span>
-        </button>
-        ${title ? `<p class="video__card-title">${title}</p>` : ''}
+        </div>
+        <p class="video__card-title">${title}</p>
       `;
-      card.querySelector('.video__thumb').addEventListener('click', function () {
-        paused = true;
-        clearInterval(autoTimer);
-        const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
-        iframe.title = title;
-        iframe.setAttribute('allowfullscreen', '');
-        iframe.setAttribute('allow', 'autoplay; encrypted-media');
-        iframe.className = 'video__card-iframe';
-        this.replaceWith(iframe);
-      });
       strip.appendChild(card);
     });
 
@@ -279,10 +271,7 @@ const YOUTUBE = {
 
     function startAuto() {
       clearInterval(autoTimer);
-      if (paused) return;
-      autoTimer = setInterval(() => {
-        scrollTo(currentIndex + 1);
-      }, 4000);
+      autoTimer = setInterval(() => { scrollTo(currentIndex + 1); }, 4000);
     }
 
     // Dots
@@ -301,7 +290,6 @@ const YOUTUBE = {
       dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
     }
 
-    // Sync index on manual scroll
     strip.addEventListener('scroll', () => {
       const idx = Math.round(strip.scrollLeft / CARD_W);
       if (idx !== currentIndex) { currentIndex = idx % total; updateDots(); }
@@ -319,7 +307,6 @@ const YOUTUBE = {
     btnNext.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><polyline points="9 18 15 12 9 6"/></svg>';
     btnNext.addEventListener('click', () => { scrollTo(currentIndex + 1); startAuto(); });
 
-    // Pause on hover
     wrap.addEventListener('mouseenter', () => { paused = true; clearInterval(autoTimer); });
     wrap.addEventListener('mouseleave', () => { paused = false; startAuto(); });
 
