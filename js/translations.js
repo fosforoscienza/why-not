@@ -36,8 +36,8 @@ const T = {
 
     "workshop.3.title": "Cittadini Digitali",
     "workshop.3.desc": "Con gli esperti di Di.Te per usare la rete in modo consapevole: riconoscere i fake, gestire le tecnologie, costruire un toolkit sulla consapevolezza digitale.",
-    "workshop.3.dates": "Novembre – Dicembre 2025",
-    "workshop.3.time": "19 marzo · 26 marzo · 28 marzo",
+    "workshop.3.dates": "19 marzo · 26 marzo · 28 marzo",
+    "workshop.3.time": "16:00 – 20:00",
 
     "decalogo.label": "Vivere il Digitale",
     "decalogo.title": "Il Decalogo",
@@ -244,8 +244,8 @@ const T = {
 
     "workshop.3.title": "Digital Citizens",
     "workshop.3.desc": "With Di.Te experts: conscious internet use, spotting fake news, managing technology and building a digital awareness toolkit.",
-    "workshop.3.dates": "November – December 2025",
-    "workshop.3.time": "Dates TBD",
+    "workshop.3.dates": "Mar 19 · Mar 26 · Mar 28",
+    "workshop.3.time": "4:00 PM – 8:00 PM",
 
     "decalogo.label": "Living Digital",
     "decalogo.title": "The Decalogue",
