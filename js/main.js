@@ -237,6 +237,11 @@ const YOUTUBE = {
     const strip = document.createElement('div');
     strip.className = 'video__strip';
 
+    const CARD_W = 336; // card width 320 + gap 16
+    let currentIndex = 0;
+    let autoTimer = null;
+    let paused = false;
+
     videos.forEach(({ id, title }) => {
       const card = document.createElement('div');
       card.className = 'video__card';
@@ -250,6 +255,8 @@ const YOUTUBE = {
         ${title ? `<p class="video__card-title">${title}</p>` : ''}
       `;
       card.querySelector('.video__thumb').addEventListener('click', function () {
+        paused = true;
+        clearInterval(autoTimer);
         const iframe = document.createElement('iframe');
         iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
         iframe.title = title;
@@ -261,29 +268,72 @@ const YOUTUBE = {
       strip.appendChild(card);
     });
 
-    const SCROLL_AMT = 336; // card width 320 + gap 16
+    const total = videos.length;
+
+    function scrollTo(index) {
+      currentIndex = ((index % total) + total) % total;
+      strip.scrollTo({ left: currentIndex * CARD_W, behavior: 'smooth' });
+      updateDots();
+    }
+
+    function startAuto() {
+      clearInterval(autoTimer);
+      if (paused) return;
+      autoTimer = setInterval(() => {
+        scrollTo(currentIndex + 1);
+      }, 4000);
+    }
+
+    // Dots
+    const dotsWrap = document.createElement('div');
+    dotsWrap.className = 'video__dots';
+    const dots = videos.map((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'video__dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', `Video ${i + 1}`);
+      d.addEventListener('click', () => { scrollTo(i); startAuto(); });
+      dotsWrap.appendChild(d);
+      return d;
+    });
+
+    function updateDots() {
+      dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+    }
+
+    // Sync index on manual scroll
+    strip.addEventListener('scroll', () => {
+      const idx = Math.round(strip.scrollLeft / CARD_W);
+      if (idx !== currentIndex) { currentIndex = idx % total; updateDots(); }
+    }, { passive: true });
 
     const btnPrev = document.createElement('button');
     btnPrev.className = 'video__slider-btn video__slider-btn--prev';
     btnPrev.setAttribute('aria-label', 'Video precedente');
     btnPrev.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><polyline points="15 18 9 12 15 6"/></svg>';
-    btnPrev.addEventListener('click', () => strip.scrollBy({ left: -SCROLL_AMT, behavior: 'smooth' }));
+    btnPrev.addEventListener('click', () => { scrollTo(currentIndex - 1); startAuto(); });
 
     const btnNext = document.createElement('button');
     btnNext.className = 'video__slider-btn video__slider-btn--next';
     btnNext.setAttribute('aria-label', 'Video successivo');
     btnNext.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><polyline points="9 18 15 12 9 6"/></svg>';
-    btnNext.addEventListener('click', () => strip.scrollBy({ left: SCROLL_AMT, behavior: 'smooth' }));
+    btnNext.addEventListener('click', () => { scrollTo(currentIndex + 1); startAuto(); });
+
+    // Pause on hover
+    wrap.addEventListener('mouseenter', () => { paused = true; clearInterval(autoTimer); });
+    wrap.addEventListener('mouseleave', () => { paused = false; startAuto(); });
 
     wrap.appendChild(btnPrev);
     wrap.appendChild(strip);
     wrap.appendChild(btnNext);
     container.appendChild(wrap);
+    container.appendChild(dotsWrap);
 
     const footer = document.createElement('div');
     footer.className = 'video__strip-footer';
     footer.innerHTML = `<a href="https://www.youtube.com/playlist?list=${playlistId}" target="_blank" rel="noopener" class="btn btn--ghost">Guarda tutta la playlist →</a>`;
     container.appendChild(footer);
+
+    startAuto();
   },
 
   renderEmbed(container, playlistId) {
