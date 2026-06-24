@@ -737,6 +737,36 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; line-height: 1
   border: none;
 }
 
+/* ── Video Slider ────────────────────────────── */
+.video__slider-wrap {
+  position: relative;
+}
+.video__slider-btn {
+  position: absolute;
+  top: calc(50% - 24px); /* center on thumbnail, above title */
+  transform: translateY(-50%);
+  z-index: 2;
+  background: rgba(13, 10, 30, 0.75);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+.video__slider-btn:hover { background: rgba(124, 58, 237, 0.75); border-color: rgba(255,255,255,0.3); }
+.video__slider-btn--prev { left: -22px; }
+.video__slider-btn--next { right: -22px; }
+@media (max-width: 768px) {
+  .video__slider-btn--prev { left: 4px; }
+  .video__slider-btn--next { right: 4px; }
+}
+
 /* ── Video Strip Gallery ─────────────────────── */
 .video__strip {
   display: flex;

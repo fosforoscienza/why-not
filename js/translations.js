@@ -37,7 +37,7 @@ const T = {
     "workshop.3.title": "Cittadini Digitali",
     "workshop.3.desc": "Con gli esperti di Di.Te per usare la rete in modo consapevole: riconoscere i fake, gestire le tecnologie, costruire un toolkit sulla consapevolezza digitale.",
     "workshop.3.dates": "Novembre – Dicembre 2025",
-    "workshop.3.time": "Date da definire",
+    "workshop.3.time": "19 marzo · 26 marzo · 28 marzo",
 
     "decalogo.label": "Vivere il Digitale",
     "decalogo.title": "Il Decalogo",
@@ -96,7 +96,7 @@ const T = {
     "footer.funded": "Finanziato da",
     "footer.contact": "Contatti",
     "footer.rights": "© 2025 Why Not? — Progetto finanziato dalla Regione Marche",
-    "footer.funded.text": "Intervento «Quello che i giovani possono» · Linea d'Azione 1 «NEET a chi?» · DGR n. 446/2024 e DGR n. 57/2025",
+    "footer.funded.text": "Il progetto \"Why Not?\" è stato finanziato dalla Regione Marche - Politiche giovanili e dalla Presidenza del Consiglio dei Ministri - Dipartimento per le Politiche giovanili e il Servizio civile universale con il FNPG 2023",
 
     // PROGETTO PAGE
     "progetto.hero.label": "Il Progetto",

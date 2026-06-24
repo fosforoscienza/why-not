@@ -231,6 +231,9 @@ const YOUTUBE = {
     const placeholder = container.querySelector('.video__placeholder');
     if (placeholder) placeholder.remove();
 
+    const wrap = document.createElement('div');
+    wrap.className = 'video__slider-wrap';
+
     const strip = document.createElement('div');
     strip.className = 'video__strip';
 
@@ -258,7 +261,24 @@ const YOUTUBE = {
       strip.appendChild(card);
     });
 
-    container.appendChild(strip);
+    const SCROLL_AMT = 336; // card width 320 + gap 16
+
+    const btnPrev = document.createElement('button');
+    btnPrev.className = 'video__slider-btn video__slider-btn--prev';
+    btnPrev.setAttribute('aria-label', 'Video precedente');
+    btnPrev.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><polyline points="15 18 9 12 15 6"/></svg>';
+    btnPrev.addEventListener('click', () => strip.scrollBy({ left: -SCROLL_AMT, behavior: 'smooth' }));
+
+    const btnNext = document.createElement('button');
+    btnNext.className = 'video__slider-btn video__slider-btn--next';
+    btnNext.setAttribute('aria-label', 'Video successivo');
+    btnNext.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20"><polyline points="9 18 15 12 9 6"/></svg>';
+    btnNext.addEventListener('click', () => strip.scrollBy({ left: SCROLL_AMT, behavior: 'smooth' }));
+
+    wrap.appendChild(btnPrev);
+    wrap.appendChild(strip);
+    wrap.appendChild(btnNext);
+    container.appendChild(wrap);
 
     const footer = document.createElement('div');
     footer.className = 'video__strip-footer';
