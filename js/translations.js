@@ -89,7 +89,7 @@ const T = {
     "toolkit.cta": "Esplora il toolkit",
 
     "video.label": "I Nostri Video",
-    "video.title": "Le Storie dei Giovani",
+    "video.title": "Il video dei giovani del progetto",
     "gallery.title": "Il progetto in foto",
     "video.placeholder": "I video realizzati dai partecipanti saranno pubblicati qui al termine del percorso.",
 
@@ -297,7 +297,7 @@ const T = {
     "toolkit.cta": "Explore the toolkit",
 
     "video.label": "Our Videos",
-    "video.title": "Stories from Young People",
+    "video.title": "The Video of the Project's Young People",
     "gallery.title": "The project in photos",
     "video.placeholder": "Videos created by participants will be published here at the end of the programme.",
 
