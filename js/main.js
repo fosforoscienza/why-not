@@ -210,25 +210,6 @@ const COUNTER = {
   }
 };
 
-/* ── Titoli video in evidenza ────────────────── */
-const FEATURED_VIDEOS = {
-  init() {
-    document.querySelectorAll('.video__featured-title[data-video-id]').forEach((el) => {
-      const id = el.getAttribute('data-video-id');
-      fetch(`https://noembed.com/embed?url=https://www.youtube.com/watch?v=${id}`)
-        .then((r) => r.json())
-        .then((data) => {
-          if (data && data.title) {
-            el.textContent = data.title;
-            const iframe = el.closest('.video__featured-item')?.querySelector('iframe');
-            if (iframe) iframe.title = data.title;
-          }
-        })
-        .catch(() => { /* mantiene il titolo di fallback */ });
-    });
-  }
-};
-
 /* ── YouTube Playlist ────────────────────────── */
 const YOUTUBE = {
   init() {
@@ -404,7 +385,6 @@ document.addEventListener('DOMContentLoaded', () => {
   SCROLL.init();
   PARALLAX.init();
   COUNTER.init();
-  FEATURED_VIDEOS.init();
   YOUTUBE.init();
   initSmoothScroll();
   initVersion();
